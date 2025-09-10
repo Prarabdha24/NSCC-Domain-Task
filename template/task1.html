@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Signup Form with Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background: #f4f4f4;
+    }
+    h1 {
+      color: #333;
+    }
+    form {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    input {
+      margin: 8px 0;
+      padding: 8px;
+      width: 100%;
+    }
+    button {
+      padding: 10px 15px;
+      margin-top: 10px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background: #28a745;
+      color: white;
+    }
+    button:hover {
+      background: #218838;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background: #fff;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+    th {
+      background: #eee;
+    }
+    .delete-btn, .clear-btn {
+      background: #dc3545;
+    }
+    .delete-btn:hover, .clear-btn:hover {
+      background: #c82333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Signup Form</h1>
+  <form id="signupForm">
+    <input type="text" id="username" placeholder="Username" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="password" id="password" placeholder="Password (min 6 chars)" required>
+    <button type="submit">Signup</button>
+  </form>
+
+  <h2>Dashboard</h2>
+  <button class="clear-btn" onclick="clearAllUsers()">Clear All Users</button>
+  <table id="userTable">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Password (Hashed)</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    // Simple hash function (not cryptographically secure)
+    function simpleHash(str) {
+      let hash = 0;
+      for (let i = 0; i < str.length; i++) {
+        hash = (hash << 5) - hash + str.charCodeAt(i);
+        hash |= 0; // Convert to 32bit integer
+      }
+      return Math.abs(hash).toString(16); // return as hex string
+    }
+
+    document.getElementById('signupForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const username = document.getElementById('username').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+
+      if (!username) {
+        alert('Username cannot be empty');
+        return;
+      }
+      if (password.length < 6) {
+        alert('Password must be at least 6 characters long');
+        return;
+      }
+
+      const hashedPassword = simpleHash(password);
+
+      const user = { username, email, password: hashedPassword };
+
+      let users = JSON.parse(localStorage.getItem('users')) || [];
+      users.push(user);
+      localStorage.setItem('users', JSON.stringify(users));
+
+      displayUsers();
+
+      document.getElementById('signupForm').reset();
+    });
+
+    function displayUsers() {
+      const tbody = document.querySelector('#userTable tbody');
+      tbody.innerHTML = '';
+      const users = JSON.parse(localStorage.getItem('users')) || [];
+
+      users.forEach((user, index) => {
+        const row = `<tr>
+          <td>${user.username}</td>
+          <td>${user.email}</td>
+          <td>${user.password}</td>
+          <td><button class="delete-btn" onclick="deleteUser(${index})">Delete</button></td>
+        </tr>`;
+        tbody.innerHTML += row;
+      });
+    }
+
+    function deleteUser(index) {
+      let users = JSON.parse(localStorage.getItem('users')) || [];
+      users.splice(index, 1);
+      localStorage.setItem('users', JSON.stringify(users));
+      displayUsers();
+    }
+
+    function clearAllUsers() {
+      if (confirm('Are you sure you want to delete all users?')) {
+        localStorage.removeItem('users');
+        displayUsers();
+      }
+    }
+
+    // Display on page load
+    window.onload = displayUsers;
+  </script>
+</body>
+</html>
