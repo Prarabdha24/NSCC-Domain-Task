@@ -49,7 +49,7 @@
     button {
       margin-top: 20px;
       padding: 12px 25px;
-      background: #007bff;
+      background: #b12bc8;
       color: #fff;
       border: none;
       border-radius: 8px;
@@ -58,7 +58,7 @@
       transition: 0.3s;
     }
     button:hover {
-      background: #0056b3;
+      background: #002ab3;
     }
     .feedback {
       margin-top: 20px;
@@ -67,8 +67,8 @@
       border-radius: 10px;
     }
     .correct {
-      background: #d4edda;
-      color: #155724;
+      background: #d8edd4;
+      color: #0fce3b;
     }
     .wrong {
       background: #f8d7da;
@@ -86,7 +86,7 @@
   <div class="quiz-container">
     <!-- Welcome screen -->
     <div id="welcomeScreen">
-      <h1>Welcome to the Quiz 🎉</h1>
+      <h1>Welcome to the Quiz!</h1>
       <p>Test your knowledge with 5 simple questions.</p>
       <button id="startBtn">Start Quiz</button>
     </div>
@@ -106,29 +106,29 @@
   <script>
     const questions = [
   {
-    question: "Which language is used for web development?",
-    options: ["Python", "JavaScript", "C++", "Java"],
-    answer: "JavaScript"
+    question: "What does NSCC stand for?",
+    options: ["Newton School Coding Classes", "Newton School of Coding Club", "Newtonian School Coding Club", "Newton School Coaching Clases"],
+    answer: "Newton School of Coding Club"
   },
   {
-    question: "Which company developed MySQL?",
-    options: ["Microsoft", "Oracle", "IBM", "Apple"],
-    answer: "Oracle"
+    question: "What does NSCC at SRM University primarily focus on?",
+    options: ["Dancing and Singing", "Cooking", "Gardening ", "Coding and Development"],
+    answer: "Coding and Development"
   },
   {
-    question: "Which tag is used to create a hyperlink in HTML?",
-    options: ["&lt;p&gt;", "&lt;a&gt;", "&lt;h1&gt;", "&lt;link&gt;"],
-    answer: "&lt;a&gt;"
+    question: "Which of the following activities are organized by NSCC?",
+    options: ["Hackathons", "Technical workshops", "Coding competitions", "All of the above"],
+    answer: "All of the above"
   },
   {
-    question: "What does CSS stand for?",
-    options: ["Color Style Sheets", "Cascading Style Sheets", "Creative Style System", "Control Styling Sheet"],
-    answer: "Cascading Style Sheets"
+    question: "The motto of NSCC is closest to:",
+    options: ["“Eat, Sleep, Repeat” ", "“Learn, Build, Share”", "“Sing, Dance, Shine” ", "“Eat, Sleep, Repeat” "],
+    answer: "“Learn, Build, Share”"
   },
   {
-    question: "Which symbol is used for comments in Python?",
-    options: ["//", "--", "#", "/* */"],
-    answer: "#"
+    question: "Why do students join NSCC at SRM?",
+    options: ["To participate in exciting events", "To collaborate with peers", "To improve coding skills", "All of the above"],
+    answer: "All of the above"
   }
 ];
 
@@ -179,9 +179,9 @@
     function checkAnswer(selected, correct) {
       if (selected === correct) {
         score++;
-        feedback.innerHTML = `<div class='feedback correct'>✅ Correct!</div>`;
+        feedback.innerHTML = `<div class='feedback correct'> Correct!</div>`;
       } else {
-        feedback.innerHTML = `<div class='feedback wrong'>❌ Wrong! Correct Answer: ${correct}</div>`;
+        feedback.innerHTML = `<div class='feedback wrong'> Wrong! Correct Answer: ${correct}</div>`;
       }
     }
 
@@ -198,10 +198,10 @@
       quizBox.style.display = "none";
       let percentage = Math.round((score / questions.length) * 100);
       let performance = "";
-      if (percentage === 100) performance = "Excellent 🎉";
-      else if (percentage >= 70) performance = "Good Job 👍";
-      else if (percentage >= 40) performance = "Needs Improvement ⚡";
-      else performance = "Better Luck Next Time ❌";
+      if (percentage === 100) performance = "Excellent! You are outstanding";
+      else if (percentage >= 70) performance = "Good Job Buddy";
+      else if (percentage >= 40) performance = "You can do much better";
+      else performance = "Better Luck Next Time Buddy";
 
       resultDiv.style.display = "block";
       resultDiv.innerHTML = `
