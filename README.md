@@ -2,6 +2,8 @@ NSCC-Domain-Task
 
 This repository contains two tasks for the NSCC Club, SRM University domain task submission.
 
+Get the access to both tasks here: https://prarabdha24.github.io/NSCC-Domain-Task/
+
 
 TECH USED IN BUILDING:
 -> HTML5 for building the structure of the page
