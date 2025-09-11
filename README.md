@@ -14,7 +14,8 @@ Features:
 	•	Dashboard shows registered users in a table
 	•	Options to delete individual users or clear all users
 
-Preview:
+Preview: ![image alt](https://github.com/Prarabdha24/NSCC-Domain-Task/blob/71d6a8d20a0b81f51612d9ecedd9b0cddbc38fb4/task1code.png)
+
 
 
 Task 2 – Interactive MCQ Quiz App
