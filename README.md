@@ -3,6 +3,12 @@ NSCC-Domain-Task
 This repository contains two tasks for the NSCC Club, SRM University domain task submission.
 
 
+TECH USED IN BUILDING:
+-> HTML5 for building the structure of the page
+-> CSS for Styling and Animations.
+-> JAVASCRIPT for logic and interactivity.
+
+
 Task 1: Signup Form with Dashboard
 
 A simple signup system with a dashboard built using HTML, CSS, and JavaScript.
