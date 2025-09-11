@@ -30,4 +30,5 @@ Features:
 	•	Final result with score, percentage, and performance message
 	•	Clean, modern UI with gradient background
 
-Preview:
+Preview: ![image alt](https://github.com/Prarabdha24/NSCC-Domain-Task/blob/ad5fcee8da65d060901dbb8f35a23ee34a0f2e79/task2code.png)
+
