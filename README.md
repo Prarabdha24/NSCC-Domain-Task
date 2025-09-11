@@ -31,4 +31,5 @@ Features:
 	•	Clean, modern UI with gradient background
 
 Preview: ![image alt](https://github.com/Prarabdha24/NSCC-Domain-Task/blob/ad5fcee8da65d060901dbb8f35a23ee34a0f2e79/task2code.png)
+![image alt](https://github.com/Prarabdha24/NSCC-Domain-Task/blob/55be1019d9308a2ddcc5dbd16e8e174b93b97ecd/task2result.png)
 
